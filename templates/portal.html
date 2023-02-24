@@ -1,0 +1,14 @@
+{% extends "index.html" %}
+{% csrf_token %}
+
+{% block title %}Login{% endblock %}
+
+{% block container %}
+{% if user.is_authenticated %}
+<iframe src="https://discord.com/widget?id=953124145368039506&theme=dark" style="margin-top:7%" width="100%" height="70%" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+{% endif %}
+{% if not user.is_authenticated %}
+<iframe class="blur" src="https://discord.com/widget?id=953124145368039506&theme=dark" style="margin-top:7%" width="100%" height="70%" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+<h4 class="text-center text-secondary" style="position:absolute;left:50%;top:50%;transform:translate(-50%,50%);"><a class="text-secondary" style="text-decoration:none" href="/login">Log in to continue</a></h4>
+{% endif %}
+{% endblock %}
